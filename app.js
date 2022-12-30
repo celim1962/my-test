@@ -37,7 +37,8 @@ const getAllFile = async () => {
     return result
 }
 
-app.get('/', (req, res) => res.send(`<!DOCTYPE html>
+app.get('/', (req, res) => res.send("""
+                                    <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -172,7 +173,6 @@ app.get('/', (req, res) => res.send(`<!DOCTYPE html>
 
         let search = async (condition) => {
             let res = await fetch(`https://celim1962api.onrender.com/getAllFile`)
-            console.log(res)
             let allResult = await res.json()
             return allResult
         }
@@ -216,7 +216,8 @@ app.get('/', (req, res) => res.send(`<!DOCTYPE html>
     </script>
 </body>
 
-</html>`))
+</html>
+                                    """))
 
 app.get('/test',(req,res)=>{
   return res.json('123test')
