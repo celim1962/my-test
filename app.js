@@ -37,7 +37,7 @@ const getAllFile = async () => {
     return result
 }
 
-app.get('/', (req, res) => res.send(`hello`))
+app.get('/', (req, res) => res.send(`<h1>123</h1>`))
 
 app.get('/test',(req,res)=>{
   return res.json('123test')
