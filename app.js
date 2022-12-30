@@ -1,4 +1,4 @@
-// Import http library
+/*// Import http library
 const http = require("http")
 
 // use env variable to define tcp/ip port with a default
@@ -28,4 +28,20 @@ server.on("request", (request, response) => {
 server.listen(PORT, err => {
   // error checking
   err ? console.error(err) : console.log(`listening on port ${PORT}`)
+})*/
+
+const express = require('express')
+const app = express()
+const port = process.env.PORT || 3000
+
+app.get('/', (req, res) => res.send(`hello`))
+
+app.get('/test',(req,res)=>{
+  return res.json('123test')
 })
+
+app.listen(port, () => {
+    console.log(`listing on port ${port}`)
+})
+
+
