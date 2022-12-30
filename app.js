@@ -144,7 +144,6 @@ const indexPage = `
         let search = async (condition) => {
             let res = await fetch('https://celim1962api.onrender.com/getFile/'+condition)
             let allResult = await res.json()
-            console.log(allResult)
             return allResult
         }
 
@@ -159,11 +158,12 @@ const indexPage = `
 
         details.addEventListener('change', async () => {
             let result = await search(details.value)
+            console.log(result)
             let count = 1
             content.innerHTML = ''
 
             result.map(data => {
-                content.innerHTML += '<tr>'
+                content.innerHTML += '<tr>'+
                     '<th scope="row">'+count+'</th>'+
                     '<td>'+data[0]+'</td>'+
                     '<td>'+data[1]+'</td>'+
