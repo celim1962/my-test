@@ -143,7 +143,9 @@ const indexPage = `
 
         let search = async (condition) => {
             let res = await fetch('https://celim1962api.onrender.com/getAllFile')
+    
             let allResult = await res.json()
+            console.log(allResult)
             return allResult
         }
 
