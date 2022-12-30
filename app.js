@@ -142,8 +142,7 @@ const indexPage = `
         }
 
         let search = async (condition) => {
-            let res = await fetch('https://celim1962api.onrender.com/getAllFile')
-    
+            let res = await fetch('https://celim1962api.onrender.com/getFile/'+condition)
             let allResult = await res.json()
             console.log(allResult)
             return allResult
@@ -223,8 +222,12 @@ const getAllFile = async () => {
 
 app.get('/', (req, res) => res.send(indexPage))
 
-app.get('/test',(req,res)=>{
-  return res.json('123test')
+app.get('/getFile/:type',async(req,res)=>{
+    let type = req.params.type
+    let result = await getAllFile()
+    
+    result = result.filter(item=>item[1]===type)
+    return res.json(result)
 })
 
 app.get('/getAllFile', async (req, res) => {
