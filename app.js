@@ -10,9 +10,18 @@ const server = http.createServer()
 // We define a function that runs in response a request event
 server.on("request", (request, response) => {
   // handle request based on method then URL
+  
+  if(request.url==='/'){
+    response.statusCode = 200
+    response.write("Hello World")
+    response.end()
+  }else if(request.url==='/test'){
   response.statusCode = 200
-  response.write("Hello World")
-  response.end()
+    response.write('test it')
+    response.end()
+  }
+  
+  
 })
 
 // get the server to start listening
