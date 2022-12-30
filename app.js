@@ -2,7 +2,10 @@ const { GoogleSpreadsheet } = require('google-spreadsheet');
 const express = require('express')
 
 const app = express()
+const cors = require('cors')
 const port = process.env.PORT || 3000
+
+app.use(cors())
 
 const getAllFile = async () => {
     const docID = '158FnoMyLjp6QTepxeILR2saClg0egWnl5TlyDmCUICs'
