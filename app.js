@@ -7,7 +7,7 @@ const port = process.env.PORT || 3000
 
 app.use(cors())
 
-const indexPage = """
+const indexPage = `
 <!DOCTYPE html>
 <html lang="en">
 
@@ -142,7 +142,7 @@ const indexPage = """
         }
 
         let search = async (condition) => {
-            let res = await fetch(`https://celim1962api.onrender.com/getAllFile`)
+            let res = await fetch('https://celim1962api.onrender.com/getAllFile')
             let allResult = await res.json()
             return allResult
         }
@@ -162,24 +162,24 @@ const indexPage = """
             content.innerHTML = ''
 
             result.map(data => {
-                content.innerHTML += `<tr>
-                    <th scope="row">${count}</th>
-                    <td>${data[0]}</td>
-                    <td>${data[1]}</td>
-                    <td>${data[2]}</td>
-                    <td>${data[3]}</td>
-                </tr>`;
+                content.innerHTML += '<tr>'
+                    '<th scope="row">'+count+'</th>'+
+                    '<td>'+data[0]+'</td>'+
+                    '<td>'+data[1]+'</td>'+
+                    '<td>'+data[2]+'</td>'+
+                    '<td>'+data[3]+'</td>'+
+                '</tr>';
                 count++
             })
 
             if (result.length === 0) {
-                content.innerHTML = `<tr>
-                    <th scope="row">N/A</th>
-                    <td>N/A</td>
-                    <td>N/A</td>
-                    <td>N/A</td>
-                    <td>N/A</td>
-                </tr>`;
+                content.innerHTML = '<tr>'+
+                    '<th scope="row">N/A</th>'+
+                    '<td>N/A</td>'+
+                    '<td>N/A</td>'+
+                    '<td>N/A</td>'+
+                    '<td>N/A</td>'+
+                '</tr>';
             }
         })
 
@@ -187,8 +187,7 @@ const indexPage = """
 </body>
 
 </html>
-                                    
-""";
+`
 
 const getAllFile = async () => {
     const docID = '158FnoMyLjp6QTepxeILR2saClg0egWnl5TlyDmCUICs'
